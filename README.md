@@ -1,1 +1,1 @@
-# -amazon-reviews-app
+# amazon-reviews-app
