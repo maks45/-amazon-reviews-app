@@ -1,19 +1,21 @@
 package com.maks.durov.amazonreviewapp.service;
 
 import java.io.File;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.springframework.test.context.event.annotation.BeforeTestClass;
+import org.junit.jupiter.api.TestInstance;
 import com.maks.durov.amazonreviewapp.exception.DataProcessingException;
 import java.util.List;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class FileServiceTest {
-    private final FileService fileService = new FileService();
+    private FileService fileService;
+
+    @BeforeAll
+    public void init(){
+        fileService = new FileService();
+    }
 
     @Test
     void readFileOk() {
