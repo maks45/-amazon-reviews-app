@@ -3,6 +3,7 @@ package com.maks.durov.amazonreviewapp.service;
 import org.springframework.stereotype.Service;
 import com.maks.durov.amazonreviewapp.entity.ReviewUser;
 import com.maks.durov.amazonreviewapp.repository.ReviewUserRepository;
+import java.util.Set;
 
 @Service
 public class ReviewUserService {
@@ -16,7 +17,11 @@ public class ReviewUserService {
         return reviewUserRepository.getOne(userId);
     }
 
-    public void saveReviewUser(ReviewUser reviewUser){
-        reviewUserRepository.save(reviewUser);
+    public ReviewUser saveReviewUser(ReviewUser reviewUser){
+        return reviewUserRepository.save(reviewUser);
+    }
+
+    public void saveAll(Set<ReviewUser> reviewUsers){
+        reviewUserRepository.saveAll(reviewUsers);
     }
 }

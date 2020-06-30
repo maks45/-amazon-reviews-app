@@ -5,6 +5,7 @@ import com.maks.durov.amazonreviewapp.dto.ParsedReviewDto;
 
 @Service
 public class ReviewDtoParserService {
+    private static final String SPLIT_REGEX = ",(?=(?:[^\\\"]*\\\"[^\\\"]*\\\")*[^\\\"]*$)";
     private static final int ID_FIELD = 0;
     private static final int PRODUCT_ID_FIELD = 1;
     private static final int USER_ID_FIELD = 2;
@@ -18,7 +19,7 @@ public class ReviewDtoParserService {
 
 
     public ParsedReviewDto parseDto(String line){
-        String[] data  = line.split(",");
+        String[] data  = line.split(SPLIT_REGEX);
         ParsedReviewDto parsedReviewDto = new ParsedReviewDto();
         parsedReviewDto.setId(Long.parseLong(data[ID_FIELD]));
         parsedReviewDto.setProductId(data[PRODUCT_ID_FIELD]);
