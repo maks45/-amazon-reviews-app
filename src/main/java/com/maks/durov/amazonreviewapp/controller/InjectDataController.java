@@ -50,7 +50,6 @@ public class InjectDataController {
 
     @PostConstruct
     public void parseDataAndSaveToDatabase() {
-        System.out.println("start injecting");
         List<ParsedReviewDto> reviewDtoList = fileParserService
                 .getReviewDtoList(fileService.readFile(FILE_NAME));
         Set<Review> reviews = new HashSet<>();
