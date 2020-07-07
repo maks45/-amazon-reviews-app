@@ -17,7 +17,7 @@ class FileParserServiceTest {
         String csvLine = "1, productId, userId, profileName, 1, 1, 10, 1594136030, summary, text";
         ParsedReviewDto parsedReviewDto = new ParsedReviewDto(1L, "productId",
           "userId", "profileName", 1, 1,
-                10, 1594136030L,"summury", "text");
+                10, 1594136030L,"summary", "text");
         ReviewDtoParserService reviewDtoParserService = mock(ReviewDtoParserService.class);
         when(reviewDtoParserService.parseDto(csvLine)).thenReturn(parsedReviewDto);
         FileParserService fileParserService = new FileParserService(reviewDtoParserService);
