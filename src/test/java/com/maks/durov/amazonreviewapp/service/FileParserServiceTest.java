@@ -14,27 +14,18 @@ class FileParserServiceTest {
 
     @Test
     void getReviewDtoList_withOneResult() {
-        String csvLine = "1, productId, userId, profileName, 1, 1, 10, 1594136030, summary, text";
-        ParsedReviewDto parsedReviewDto = new ParsedReviewDto(1L, "productId",
-          "userId", "profileName", 1, 1,
-                10, 1594136030L,"summary", "text");
         ReviewDtoParserService reviewDtoParserService = mock(ReviewDtoParserService.class);
-        when(reviewDtoParserService.parseDto(csvLine)).thenReturn(parsedReviewDto);
+        when(reviewDtoParserService.parseDto("csv line")).thenReturn(new ParsedReviewDto());
         FileParserService fileParserService = new FileParserService(reviewDtoParserService);
-        List<ParsedReviewDto> expected = List.of(parsedReviewDto);
-        List<ParsedReviewDto> actual = fileParserService.getReviewDtoList(List.of("fields description",
-                csvLine));
-        assertEquals(expected, actual);
+        List<ParsedReviewDto> result = fileParserService.getReviewDtoList(List.of("fields description",
+                "csv line"));
+        assertEquals(1, result.size());
     }
 
     @Test
     void getReviewDtoList_withNoResult() {
-        String csvLine = "1, productId, userId, profileName, 1, 1, 10, 1594136030, summary, text";
-        ParsedReviewDto parsedReviewDto = new ParsedReviewDto(1L, "productId",
-                "userId", "profileName", 1, 1,
-                10, 1594136030L,"summury", "text");
         ReviewDtoParserService reviewDtoParserService = mock(ReviewDtoParserService.class);
-        when(reviewDtoParserService.parseDto(csvLine)).thenReturn(parsedReviewDto);
+        when(reviewDtoParserService.parseDto("csv line")).thenReturn(new ParsedReviewDto());
         FileParserService fileParserService = new FileParserService(reviewDtoParserService);
         List<ParsedReviewDto> result = fileParserService.getReviewDtoList(List.of("fields description"));
         assertTrue(result.isEmpty());
@@ -42,12 +33,8 @@ class FileParserServiceTest {
 
     @Test
     void getReviewDtoList_withEmptyList() {
-        String csvLine = "1, productId, userId, profileName, 1, 1, 10, 1594136030, summary, text";
-        ParsedReviewDto parsedReviewDto = new ParsedReviewDto(1L, "productId",
-                "userId", "profileName", 1, 1,
-                10, 1594136030L,"summury", "text");
         ReviewDtoParserService reviewDtoParserService = mock(ReviewDtoParserService.class);
-        when(reviewDtoParserService.parseDto(csvLine)).thenReturn(parsedReviewDto);
+        when(reviewDtoParserService.parseDto("csv line")).thenReturn(new ParsedReviewDto());
         FileParserService fileParserService = new FileParserService(reviewDtoParserService);
         List<ParsedReviewDto> result = fileParserService.getReviewDtoList(new ArrayList<>());
         assertTrue(result.isEmpty());
