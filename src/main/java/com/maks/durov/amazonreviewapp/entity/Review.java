@@ -1,5 +1,6 @@
 package com.maks.durov.amazonreviewapp.entity;
 
+import java.time.LocalDateTime;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +8,6 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import lombok.Data;
-import java.time.LocalDateTime;
 
 @Data
 @Entity(name = "reviews")
