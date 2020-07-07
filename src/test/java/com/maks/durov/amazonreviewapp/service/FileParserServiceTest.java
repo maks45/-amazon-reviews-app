@@ -7,6 +7,7 @@ import static org.mockito.Mockito.when;
 import com.maks.durov.amazonreviewapp.dto.ParsedReviewDto;
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 class FileParserServiceTest {
@@ -39,4 +40,16 @@ class FileParserServiceTest {
         assertTrue(result.isEmpty());
     }
 
+    @Test
+    void getReviewDtoList_withEmptyList() {
+        String csvLine = "1, productId, userId, profileName, 1, 1, 10, 1594136030, summary, text";
+        ParsedReviewDto parsedReviewDto = new ParsedReviewDto(1L, "productId",
+                "userId", "profileName", 1, 1,
+                10, 1594136030L,"summury", "text");
+        ReviewDtoParserService reviewDtoParserService = mock(ReviewDtoParserService.class);
+        when(reviewDtoParserService.parseDto(csvLine)).thenReturn(parsedReviewDto);
+        FileParserService fileParserService = new FileParserService(reviewDtoParserService);
+        List<ParsedReviewDto> result = fileParserService.getReviewDtoList(new ArrayList<>());
+        assertTrue(result.isEmpty());
+    }
 }

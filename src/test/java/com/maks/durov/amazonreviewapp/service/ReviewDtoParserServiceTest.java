@@ -8,7 +8,7 @@ class ReviewDtoParserServiceTest {
     private final ReviewDtoParserService reviewDtoParserService = new ReviewDtoParserService();
 
     @Test
-    void parseDto() {
+    void parseDto_ok() {
         String csvLine = "1, productId, userId, profileName, 1, 1, 10, 1594136030, summary, text";
         ParsedReviewDto expected = new ParsedReviewDto(1L, "productId",
                 "userId", "profileName", 1, 1,
