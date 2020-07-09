@@ -1,6 +1,6 @@
 package com.maks.durov.amazonreviewapp.service;
 
-import com.maks.durov.amazonreviewapp.dto.ParsedReviewDto;
+import com.maks.durov.amazonreviewapp.dto.ReviewDto;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -14,7 +14,7 @@ public class FileParserService {
         this.reviewDtoParserService = reviewDtoParserService;
     }
 
-    public List<ParsedReviewDto> getReviewDtoList(List<String> data) {
+    public List<ReviewDto> getReviewDtoList(List<String> data) {
         return IntStream.range(1, data.size())
                 .mapToObj(data::get)
                 .parallel()

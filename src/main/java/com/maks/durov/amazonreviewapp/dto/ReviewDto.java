@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
-public class ParsedReviewDto {
+public class ReviewDto {
     private Long id;
     private String productId;
     private String userId;
