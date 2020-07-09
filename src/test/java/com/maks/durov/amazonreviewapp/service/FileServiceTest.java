@@ -18,7 +18,7 @@ class FileServiceTest {
     }
 
     @Test
-    void readFileOk() {
+    void readFile_ok() {
         String filePath = "src/test/resources/test.txt";
         assertTrue(new File(filePath).exists());
         List<String> expected = List.of("some content");
@@ -27,7 +27,7 @@ class FileServiceTest {
     }
 
     @Test
-    void readFileException() {
+    void readFile_exception() {
         String fakePath = "";
         assertThrows(DataProcessingException.class, () -> fileService.readFile(fakePath));
     }
