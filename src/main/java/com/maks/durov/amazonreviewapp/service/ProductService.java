@@ -2,6 +2,7 @@ package com.maks.durov.amazonreviewapp.service;
 
 import com.maks.durov.amazonreviewapp.entity.Product;
 import com.maks.durov.amazonreviewapp.repository.ProductRepository;
+import java.util.List;
 import java.util.Set;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +24,9 @@ public class ProductService {
 
     public void saveAll(Set<Product> productSet) {
         productRepository.saveAll(productSet);
+    }
+
+    public List<Product> getMostCommentedProducts(int limit) {
+        return productRepository.findMostReviewedProducts(limit);
     }
 }
