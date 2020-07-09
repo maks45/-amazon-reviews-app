@@ -27,6 +27,6 @@ public class ProductService {
     }
 
     public List<Product> getMostCommentedProducts(int limit) {
-        return productRepository.findByReviewCount(limit);
+        return productRepository.findMostReviewedProducts(limit);
     }
 }

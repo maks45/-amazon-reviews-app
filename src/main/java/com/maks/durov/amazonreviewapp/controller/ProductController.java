@@ -1,5 +1,6 @@
 package com.maks.durov.amazonreviewapp.controller;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,7 @@ public class ProductController {
         this.productService = productService;
     }
 
+    @GetMapping
     public List<ProductResponseDto> getMostCommentedProducts(
             @RequestParam(defaultValue = "1000") int limit) {
         return productService.getMostCommentedProducts(limit)

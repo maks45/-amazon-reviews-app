@@ -9,5 +9,10 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, String> {
 
-    List<Product> findProductsByReviewCount(int limit);
+    @Query(value = "SELECT review_products.id, count(*) AS c FROM review_products " +
+            "JOIN reviews ON review_products.id = reviews.product_id "+
+            "GROUP BY review_products.id " +
+            "ORDER BY c DESC LIMIT ?1" , nativeQuery = true)
+    List<Product> findMostReviewedProducts(int limit);
+
 }

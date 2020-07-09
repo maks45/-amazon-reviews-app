@@ -17,7 +17,7 @@ public class ReviewController {
     }
 
     @GetMapping
-    public List<String> findMostFrequentWords(@RequestParam(defaultValue = "1000") int limit){
+    public List<String> getMostFrequentWords(@RequestParam(defaultValue = "1000") int limit){
         return reviewService.findMostFrequentWords(limit);
     }
 }
