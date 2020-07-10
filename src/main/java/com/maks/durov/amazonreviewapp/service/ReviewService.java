@@ -2,10 +2,9 @@ package com.maks.durov.amazonreviewapp.service;
 
 import com.maks.durov.amazonreviewapp.entity.Review;
 import com.maks.durov.amazonreviewapp.repository.ReviewRepository;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,6 +19,7 @@ public class ReviewService {
         return reviewRepository.save(review);
     }
 
+    @Async
     public void saveAll(Set<Review> reviews) {
         reviewRepository.saveAll(reviews);
     }
