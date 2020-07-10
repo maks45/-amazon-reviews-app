@@ -1,8 +1,9 @@
 package com.maks.durov.amazonreviewapp.controller;
 
-import javax.annotation.PostConstruct;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.maks.durov.amazonreviewapp.dto.ReviewDto;
 import com.maks.durov.amazonreviewapp.entity.Product;
@@ -20,9 +21,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Component
+@RestController
+@RequestMapping("/inject")
 public class InjectDataController {
-    public static final String FILE_NAME = "Reviews.csv";
     private final FileService fileService;
     private final FileParserService fileParserService;
     private final ReviewUserService reviewUserService;
@@ -50,10 +51,10 @@ public class InjectDataController {
         this.reviewService = reviewService;
     }
 
-    @PostConstruct
-    public void inject() {
+    @GetMapping
+    public void inject(@RequestParam(defaultValue = "Reviews.csv") String file) {
         List<ReviewDto> reviewDtoList = fileParserService
-                .getReviewDtoList(fileService.readFile(FILE_NAME));
+                .getReviewDtoList(fileService.readFile(file));
         Set<Review> reviews = new HashSet<>();
         Set<ReviewUser> reviewUsers = new HashSet<>();
         Set<Product> products = new HashSet<>();

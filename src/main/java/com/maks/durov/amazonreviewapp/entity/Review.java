@@ -21,10 +21,10 @@ public class Review {
     @Column(length = 100000)
     private String text;
     private LocalDateTime reviewTime;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "product_id")
     private Product product;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id")
     private ReviewUser reviewUser;
 }

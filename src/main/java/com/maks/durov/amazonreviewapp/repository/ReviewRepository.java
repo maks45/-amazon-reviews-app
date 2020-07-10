@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Long> {
 
-    @Query(value = "SELECT text from reviews")
-    List<String> getMostFrequentWords(int limit);
+    @Query(value = "select text from reviews ")
+    List<String> getAllText();
 }
