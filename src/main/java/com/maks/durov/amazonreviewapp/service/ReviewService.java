@@ -29,16 +29,17 @@ public class ReviewService {
         reviewRepository.saveAll(reviews);
     }
 
-    public List<String> findMostFrequentWords(int limit) {
+    public List<String> findMostFrequentWords(int limit, int minWordLength) {
         return reviewRepository.getAllText().stream()
-                .parallel()
                 .map(String::toLowerCase)
                 .flatMap(s -> Arrays.stream(s.split(NON_ALPHANUMERIC_REGEX)))
-                //.parallel()
-                .filter(s -> s.length() > 3)
+                .parallel()
+                .filter(s -> s.length() > minWordLength)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet().stream()
+                .parallel()
                 .map(e -> new AbstractMap.SimpleEntry<>(e.getKey(), e.getValue()))
+                .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue()))
                 .map(AbstractMap.SimpleEntry::getKey)
                 .limit(limit)
                 .collect(Collectors.toList());

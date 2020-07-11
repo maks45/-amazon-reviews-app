@@ -19,8 +19,8 @@ class FileServiceTest {
 
     @Test
     void readFile_ok() {
-        String filePath = "src/test/resources/test.txt";
-        assertTrue(new File(filePath).exists());
+        String filePath = "test.txt";
+        assertNotNull(getClass().getClassLoader().getResource(filePath));
         List<String> expected = List.of("some content");
         List<String> actual = fileService.readFile(filePath);
         assertEquals(expected, actual);

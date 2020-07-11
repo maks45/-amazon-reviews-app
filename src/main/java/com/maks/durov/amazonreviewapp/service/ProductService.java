@@ -4,10 +4,8 @@ import com.maks.durov.amazonreviewapp.entity.Product;
 import com.maks.durov.amazonreviewapp.repository.ProductRepository;
 import java.util.List;
 import java.util.Set;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ProductService {

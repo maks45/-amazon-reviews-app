@@ -7,7 +7,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ReviewUserService {
@@ -31,7 +30,7 @@ public class ReviewUserService {
     }
 
     @Async
-    public void save(ReviewUser reviewUser){
+    public void save(ReviewUser reviewUser) {
         reviewUserRepository.save(reviewUser);
     }
 

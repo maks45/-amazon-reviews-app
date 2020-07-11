@@ -1,8 +1,8 @@
 package com.maks.durov.amazonreviewapp.mapper;
 
-import org.springframework.stereotype.Component;
 import com.maks.durov.amazonreviewapp.dto.ReviewDto;
 import com.maks.durov.amazonreviewapp.entity.Product;
+import org.springframework.stereotype.Component;
 
 @Component
 public class ReviewDtoProductMapper {

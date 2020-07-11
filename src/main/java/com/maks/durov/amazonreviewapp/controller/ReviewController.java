@@ -1,11 +1,11 @@
 package com.maks.durov.amazonreviewapp.controller;
 
+import com.maks.durov.amazonreviewapp.service.ReviewService;
+import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.maks.durov.amazonreviewapp.service.ReviewService;
-import java.util.List;
 
 @RestController
 @RequestMapping("/reviews")
@@ -17,7 +17,9 @@ public class ReviewController {
     }
 
     @GetMapping("/frequent-words")
-    public List<String> getMostFrequentWords(@RequestParam(defaultValue = "1000") int limit){
-        return reviewService.findMostFrequentWords(limit);
+    public List<String> getMostFrequentWords(@RequestParam(defaultValue = "1000") int limit,
+                                             @RequestParam(defaultValue = "3", name = "min-length")
+                                                     int minWordLength) {
+        return reviewService.findMostFrequentWords(limit, minWordLength);
     }
 }

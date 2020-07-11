@@ -19,7 +19,8 @@ class ReviewDtoParserServiceTest {
 
     @Test
     void parseCommaDto_ok() {
-        String csvLine = "1, productId, userId, profileName, 1, 1, 10, 1594136030, \"s,u,m,m,a,r,y\", \"t,e,x,t\"";
+        String csvLine = "1, productId, userId, profileName, 1, 1, 10, 1594136030, \"s,u,m,m,a,r,y\","
+                + " \"t,e,x,t\"";
         ReviewDto expected = new ReviewDto(1L, "productId",
                 "userId", "profileName", 1, 1,
                 10, 1594136030L,"s,u,m,m,a,r,y", "t,e,x,t");
