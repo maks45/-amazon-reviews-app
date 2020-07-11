@@ -13,7 +13,7 @@ public class FileService {
         try {
             return Files.readAllLines(Path.of(path));
         } catch (IOException e) {
-            throw new DataProcessingException("can't read file", e);
+            throw new DataProcessingException("can't read file " + path, e);
         }
     }
 }
