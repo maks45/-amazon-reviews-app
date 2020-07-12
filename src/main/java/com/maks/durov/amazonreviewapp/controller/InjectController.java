@@ -5,7 +5,6 @@ import com.maks.durov.amazonreviewapp.security.AuthenticationService;
 import com.maks.durov.amazonreviewapp.service.RoleService;
 import java.util.Set;
 import javax.annotation.PostConstruct;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 @Controller("/inject")
