@@ -22,9 +22,8 @@ public class Review {
     private String text;
     private LocalDateTime reviewTime;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "user_id")
     private Product product;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "user_id")
     private ReviewUser reviewUser;
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ReviewUserRepository extends JpaRepository<ReviewUser, String> {
-
+  
     @Query(value = "SELECT review_users.user_id, review_users.user_name,"
             + "  count(*) AS c FROM review_users "
             + "JOIN reviews ON review_users.user_id = reviews.user_id "

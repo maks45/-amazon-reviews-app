@@ -7,6 +7,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,10 +18,10 @@ public class FileService {
         try {
             return Files.readAllLines(Paths.get(Objects.requireNonNull(getClass()
                     .getClassLoader().getResource(path)).toURI()));
-        } catch (IOException e) {
-            throw new DataProcessingException("can't read file " + path, e);
         } catch (URISyntaxException e) {
             throw new DataProcessingException("wrong uri", e);
+        } catch (IOException e) {
+            throw new DataProcessingException("can't read file " + path, e);
         }
     }
 }

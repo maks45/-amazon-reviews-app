@@ -28,12 +28,15 @@ public class ProductService {
         productRepository.saveAll(productSet);
     }
 
-    @Async
     public void save(Product product) {
         productRepository.save(product);
     }
 
     public List<Product> getMostCommentedProducts(int limit) {
         return productRepository.findMostReviewedProducts(limit, 0);
+    }
+  
+    public void saveAll(Set<Product> productSet) {
+        productRepository.saveAll(productSet);
     }
 }

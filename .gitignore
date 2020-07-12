@@ -31,4 +31,3 @@ build/
 .vscode/
 ###############
 src/main/resources/Reviews.csv
-Reviews.csv
