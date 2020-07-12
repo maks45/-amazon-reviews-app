@@ -3,9 +3,10 @@ package com.maks.durov.amazonreviewapp.service;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import com.maks.durov.amazonreviewapp.dto.ReviewDto;
+import com.maks.durov.amazonreviewapp.service.impl.ReviewDtoParserServiceImpl;
 
 class ReviewDtoParserServiceTest {
-    private final ReviewDtoParserService reviewDtoParserService = new ReviewDtoParserService();
+    private final ReviewDtoParserServiceImpl reviewDtoParserServiceImpl = new ReviewDtoParserServiceImpl();
 
     @Test
     void parseDto_ok() {
@@ -13,7 +14,7 @@ class ReviewDtoParserServiceTest {
         ReviewDto expected = new ReviewDto(1L, "productId",
                 "userId", "profileName", 1, 1,
                 10, 1594136030L,"summary", "text");
-        ReviewDto actual = reviewDtoParserService.parseDto(csvLine);
+        ReviewDto actual = reviewDtoParserServiceImpl.parseDto(csvLine);
         assertEquals(expected, actual);
     }
 
@@ -24,7 +25,7 @@ class ReviewDtoParserServiceTest {
         ReviewDto expected = new ReviewDto(1L, "productId",
                 "userId", "profileName", 1, 1,
                 10, 1594136030L,"s,u,m,m,a,r,y", "t,e,x,t");
-        ReviewDto actual = reviewDtoParserService.parseDto(csvLine);
+        ReviewDto actual = reviewDtoParserServiceImpl.parseDto(csvLine);
         assertEquals(expected, actual);
     }
 }

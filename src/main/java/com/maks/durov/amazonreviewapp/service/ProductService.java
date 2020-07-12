@@ -1,38 +1,18 @@
 package com.maks.durov.amazonreviewapp.service;
 
 import com.maks.durov.amazonreviewapp.entity.Product;
-import com.maks.durov.amazonreviewapp.repository.ProductRepository;
 import java.util.List;
 import java.util.Set;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.stereotype.Service;
 
-@Service
-public class ProductService {
-    private final ProductRepository productRepository;
+public interface ProductService {
 
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+    Product getProductById(String productId);
 
-    public Product getProductById(String productId) {
-        return productRepository.getOne(productId);
-    }
+    Product saveProduct(Product product);
 
-    public Product saveProduct(Product product) {
-        return productRepository.save(product);
-    }
+    public void saveAll(Set<Product> productSet);
 
-    @Async
-    public void saveAll(Set<Product> productSet) {
-        productRepository.saveAll(productSet);
-    }
+    public void save(Product product);
 
-    public void save(Product product) {
-        productRepository.save(product);
-    }
-
-    public List<Product> getMostCommentedProducts(int limit) {
-        return productRepository.findMostReviewedProducts(limit, 0);
-    }
+    List<Product> getMostCommentedProducts(int limit);
 }
