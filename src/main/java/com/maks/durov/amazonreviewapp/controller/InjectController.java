@@ -6,8 +6,9 @@ import com.maks.durov.amazonreviewapp.service.RoleService;
 import java.util.Set;
 import javax.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
-@Component
+@Controller("/inject")
 public class InjectController {
     private final RoleService roleService;
     private final AuthenticationService authenticationService;
