@@ -14,9 +14,9 @@ class FileParserServiceImplTest {
 
     @Test
     void getReviewDtoList_withOneResult() {
-        ReviewDtoParserServiceImpl reviewDtoParserServiceImpl = mock(ReviewDtoParserServiceImpl.class);
-        when(reviewDtoParserServiceImpl.parseDto("csv line")).thenReturn(new ReviewDto());
-        FileParserServiceImpl fileParserService = new FileParserServiceImpl(reviewDtoParserServiceImpl);
+        ReviewDtoParserServiceImpl reviewDtoParserService = mock(ReviewDtoParserServiceImpl.class);
+        when(reviewDtoParserService.parseDto("csv line")).thenReturn(new ReviewDto());
+        FileParserService fileParserService = new FileParserServiceImpl(reviewDtoParserService);
         List<ReviewDto> result = fileParserService.getReviewDtoList(List.of("fields description",
                 "csv line"));
         assertEquals(1, result.size());
@@ -24,9 +24,9 @@ class FileParserServiceImplTest {
 
     @Test
     void getReviewDtoList_withNoResult() {
-        ReviewDtoParserServiceImpl reviewDtoParserServiceImpl = mock(ReviewDtoParserServiceImpl.class);
-        when(reviewDtoParserServiceImpl.parseDto("csv line")).thenReturn(new ReviewDto());
-        FileParserServiceImpl fileParserService = new FileParserServiceImpl(reviewDtoParserServiceImpl);
+        ReviewDtoParserService reviewDtoParserService = mock(ReviewDtoParserServiceImpl.class);
+        when(reviewDtoParserService.parseDto("csv line")).thenReturn(new ReviewDto());
+        FileParserService fileParserService = new FileParserServiceImpl(reviewDtoParserService);
         List<ReviewDto> result = fileParserService.getReviewDtoList(List.of("fields description"));
         assertTrue(result.isEmpty());
     }

@@ -33,7 +33,6 @@ public class ReviewUserServiceImpl implements ReviewUserService {
         reviewUserRepository.saveAll(reviewUsers);
     }
 
-    @Async
     @Override
     public void save(ReviewUser reviewUser) {
         reviewUserRepository.save(reviewUser);
