@@ -62,7 +62,7 @@ public class InjectDataController {
             ReviewUser reviewUser = userMapper.getReviewUserFromParsedReviewDto(s);
             reviewUsers.add(reviewUser);
             products.add(product);
-            reviews.add(reviewMapper.getReviewFromParsedReviewDto(s, reviewUser, product));
+            reviews.add(reviewMapper.getReviewFromReviewDto(s, reviewUser, product));
         });
         productService.saveAll(products);
         reviewUserService.saveAll(reviewUsers);

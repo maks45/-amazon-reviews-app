@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class ReviewDtoReviewMapper {
 
-    public Review getReviewFromParsedReviewDto(ReviewDto parsedReviewDto,
-                                               ReviewUser reviewUser, Product product) {
+    public Review getReviewFromReviewDto(ReviewDto parsedReviewDto,
+                                         ReviewUser reviewUser, Product product) {
         Review review = new Review();
         review.setId(parsedReviewDto.getId());
         review.setText(parsedReviewDto.getText());
