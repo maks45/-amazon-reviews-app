@@ -35,8 +35,4 @@ public class ProductService {
     public List<Product> getMostCommentedProducts(int limit) {
         return productRepository.findMostReviewedProducts(limit, 0);
     }
-  
-    public void saveAll(Set<Product> productSet) {
-        productRepository.saveAll(productSet);
-    }
 }
