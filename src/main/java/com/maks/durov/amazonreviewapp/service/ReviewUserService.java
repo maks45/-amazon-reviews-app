@@ -1,27 +1,16 @@
 package com.maks.durov.amazonreviewapp.service;
 
 import com.maks.durov.amazonreviewapp.entity.ReviewUser;
-import com.maks.durov.amazonreviewapp.repository.ReviewUserRepository;
+import java.util.List;
 import java.util.Set;
-import org.springframework.stereotype.Service;
 
-@Service
-public class ReviewUserService {
-    private final ReviewUserRepository reviewUserRepository;
+public interface ReviewUserService {
 
-    public ReviewUserService(ReviewUserRepository reviewUserRepository) {
-        this.reviewUserRepository = reviewUserRepository;
-    }
+    ReviewUser getReviewUserById(String userId);
 
-    public ReviewUser getReviewUserById(String userId) {
-        return reviewUserRepository.getOne(userId);
-    }
+    ReviewUser saveReviewUser(ReviewUser reviewUser);
 
-    public ReviewUser saveReviewUser(ReviewUser reviewUser) {
-        return reviewUserRepository.save(reviewUser);
-    }
+    void saveAll(Set<ReviewUser> reviewUsers);
 
-    public void saveAll(Set<ReviewUser> reviewUsers) {
-        reviewUserRepository.saveAll(reviewUsers);
-    }
+    List<String> getMostActiveUsers(int limit);
 }

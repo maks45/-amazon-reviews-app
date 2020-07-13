@@ -1,23 +1,13 @@
 package com.maks.durov.amazonreviewapp.service;
 
 import com.maks.durov.amazonreviewapp.entity.Review;
-import com.maks.durov.amazonreviewapp.repository.ReviewRepository;
 import java.util.Set;
-import org.springframework.stereotype.Service;
 
-@Service
-public class ReviewService {
-    private final ReviewRepository reviewRepository;
+public interface ReviewService {
 
-    public ReviewService(ReviewRepository reviewRepository) {
-        this.reviewRepository = reviewRepository;
-    }
+    Review saveReview(Review review);
 
-    public Review saveReview(Review review) {
-        return reviewRepository.save(review);
-    }
+    void saveAll(Set<Review> reviews);
 
-    public void saveAll(Set<Review> reviews) {
-        reviewRepository.saveAll(reviews);
-    }
+    Set<String> findMostFrequentWords(int limit, int minWordLength);
 }

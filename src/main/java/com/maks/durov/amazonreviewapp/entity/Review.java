@@ -6,11 +6,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
 @Entity(name = "reviews")
+@EqualsAndHashCode
 public class Review {
     @Id
     private Long id;
@@ -19,6 +22,7 @@ public class Review {
     private String text;
     private LocalDateTime reviewTime;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "user_id")
     private Product product;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private ReviewUser reviewUser;
