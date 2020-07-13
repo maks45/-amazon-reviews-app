@@ -12,7 +12,5 @@ public interface ReviewUserService {
 
     void saveAll(Set<ReviewUser> reviewUsers);
 
-    void save(ReviewUser reviewUser);
-
     List<String> getMostActiveUsers(int limit);
 }

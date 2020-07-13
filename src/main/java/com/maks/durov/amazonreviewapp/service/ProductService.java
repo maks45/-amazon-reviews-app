@@ -12,7 +12,5 @@ public interface ProductService {
 
     public void saveAll(Set<Product> productSet);
 
-    public void save(Product product);
-
     List<Product> getMostCommentedProducts(int limit);
 }

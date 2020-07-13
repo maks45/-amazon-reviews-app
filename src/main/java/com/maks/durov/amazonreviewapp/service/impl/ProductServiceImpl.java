@@ -33,11 +33,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void save(Product product) {
-        productRepository.save(product);
-    }
-
-    @Override
     public List<Product> getMostCommentedProducts(int limit) {
         return productRepository.findMostReviewedProducts(limit, 0);
     }

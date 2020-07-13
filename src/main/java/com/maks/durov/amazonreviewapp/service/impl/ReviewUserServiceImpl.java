@@ -22,11 +22,6 @@ public class ReviewUserServiceImpl implements ReviewUserService {
         return reviewUserRepository.getOne(userId);
     }
 
-    @Override
-    public ReviewUser saveReviewUser(ReviewUser reviewUser) {
-        return reviewUserRepository.save(reviewUser);
-    }
-
     @Async
     @Override
     public void saveAll(Set<ReviewUser> reviewUsers) {
@@ -34,8 +29,8 @@ public class ReviewUserServiceImpl implements ReviewUserService {
     }
 
     @Override
-    public void save(ReviewUser reviewUser) {
-        reviewUserRepository.save(reviewUser);
+    public ReviewUser saveReviewUser(ReviewUser reviewUser) {
+        return reviewUserRepository.save(reviewUser);
     }
 
     @Override
