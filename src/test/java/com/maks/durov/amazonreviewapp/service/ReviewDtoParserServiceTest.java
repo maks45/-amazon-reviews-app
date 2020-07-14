@@ -27,6 +27,5 @@ class ReviewDtoParserServiceTest {
                 10, 1594136030L, "s,u,m,m,a,r,y", "t,e,x,t");
         ReviewDto actual = reviewDtoParserService.parseDto(csvLine);
         assertEquals(expected, actual);
-        int[] a = {1, 2, 03};
     }
 }
