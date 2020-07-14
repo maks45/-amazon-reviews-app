@@ -1,19 +1,22 @@
 package com.maks.durov.amazonreviewapp.service;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import com.maks.durov.amazonreviewapp.exception.DataProcessingException;
 import java.io.File;
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import com.maks.durov.amazonreviewapp.exception.DataProcessingException;
-import java.util.List;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class FileServiceTest {
     private FileService fileService;
 
     @BeforeAll
-    public void init(){
+    public void init() {
         fileService = new FileService();
     }
 
