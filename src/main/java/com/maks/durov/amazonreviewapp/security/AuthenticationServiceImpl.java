@@ -2,17 +2,17 @@ package com.maks.durov.amazonreviewapp.security;
 
 import com.maks.durov.amazonreviewapp.entity.Role;
 import com.maks.durov.amazonreviewapp.entity.User;
-import com.maks.durov.amazonreviewapp.service.UserService;
+import com.maks.durov.amazonreviewapp.service.impl.UserServiceImpl;
 import java.util.Set;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
-    private final UserService userService;
+    private final UserServiceImpl userService;
     private final PasswordEncoder passwordEncoder;
 
-    public AuthenticationServiceImpl(UserService userService,
+    public AuthenticationServiceImpl(UserServiceImpl userService,
                                      PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;

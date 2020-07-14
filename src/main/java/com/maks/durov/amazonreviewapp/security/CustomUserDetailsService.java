@@ -1,7 +1,7 @@
 package com.maks.durov.amazonreviewapp.security;
 
 import com.maks.durov.amazonreviewapp.entity.User;
-import com.maks.durov.amazonreviewapp.service.UserService;
+import com.maks.durov.amazonreviewapp.service.impl.UserServiceImpl;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 @Primary
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
-    public CustomUserDetailsService(UserService userService) {
+    public CustomUserDetailsService(UserServiceImpl userService) {
         this.userService = userService;
     }
 
