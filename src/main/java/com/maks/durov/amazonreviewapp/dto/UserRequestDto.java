@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 public class UserRequestDto {
     @EmailValidate(message = "email invalid")
-    @NotNull(message = "email can't be null")
     private String email;
     @NotNull(message = "password can't be null")
     @Size(min = 4, message = "password length should be 4 or more symbols")
