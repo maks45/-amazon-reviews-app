@@ -30,18 +30,29 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(HttpMethod.DELETE, "/review")
-                .hasRole("ADMIN")
-                .antMatchers(HttpMethod.GET, "/review/*")
-                .authenticated()
-                .antMatchers(HttpMethod.POST, "/review")
-                .hasRole("ADMIN")
-                .antMatchers(HttpMethod.POST, "/register")
+                .anyRequest()
                 .permitAll()
                 .and()
                 .httpBasic()
                 .and()
-                .csrf().disable();
+                .csrf()
+                .disable();
+       /* http
+                .authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/reviews")
+                .hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/reviews/*")
+                .permitAll()
+                .antMatchers(HttpMethod.POST, "/reviews")
+                .hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/register")
+                .permitAll()
+                .anyRequest()
+                .permitAll()
+                .and()
+                .httpBasic()
+                .and()
+                .csrf().disable();*/
     }
 
     @Bean

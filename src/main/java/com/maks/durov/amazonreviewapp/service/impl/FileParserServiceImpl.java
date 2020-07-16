@@ -20,7 +20,7 @@ public class FileParserServiceImpl implements FileParserService {
     public List<ReviewDto> getReviewDtoList(List<String> data) {
         return IntStream.range(1, data.size())
                 .mapToObj(data::get)
-                .parallel()
+               // .parallel()
                 .map(reviewDtoParserService::parseDto)
                 .collect(Collectors.toList());
     }
