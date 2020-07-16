@@ -68,11 +68,10 @@ public class InjectDataController {
         roleService.add(adminRole);
         authenticationService.register("admin@gmail.com",
                 "1111", Set.of(adminRole, userRole));
-        inject("Reviews.csv");
     }
 
-    //@GetMapping
-    public void inject(String file) {//@RequestParam(defaultValue = "Reviews.csv") String file) {
+    @GetMapping
+    public void inject(@RequestParam(defaultValue = "Reviews.csv") String file) {
         List<ReviewDto> reviewDtoList = fileParserService
                 .getReviewDtoList(fileService.readFile(file));
         Set<Review> reviews = new HashSet<>();
