@@ -30,15 +30,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .anyRequest()
-                .permitAll()
-                .and()
-                .httpBasic()
-                .and()
-                .csrf()
-                .disable();
-       /* http
-                .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/reviews")
                 .hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/reviews/*")
@@ -52,7 +43,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .httpBasic()
                 .and()
-                .csrf().disable();*/
+                .csrf().disable();
     }
 
     @Bean
