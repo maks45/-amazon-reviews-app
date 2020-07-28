@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class JwtTokenUtil {
-    public static final long JWT_TOKEN_VALIDITY = 1_800_000;
+    public static final long JWT_TOKEN_LIFETIME = 18_000;
     @Value("${jwt.secret}")
     private String secret;
 
@@ -47,7 +47,7 @@ public class JwtTokenUtil {
     private String doGenerateToken(Map<String, Object> claims, String subject) {
         return Jwts.builder().setClaims(claims).setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY * 1000))
+                .setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_LIFETIME * 1000))
                 .signWith(SignatureAlgorithm.HS512, secret).compact();
     }
 
