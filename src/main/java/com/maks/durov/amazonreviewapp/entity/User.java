@@ -27,8 +27,6 @@ public class User {
     private Long id;
     @Column(name = "email", unique = true)
     private String email;
-    @Column(name = "login", unique = true)
-    private String login;
     private String password;
     @ManyToMany
     @JoinTable(
