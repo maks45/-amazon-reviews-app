@@ -6,6 +6,7 @@ import com.maks.durov.amazonreviewapp.service.ReviewUserService;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +36,8 @@ public class ReviewUserServiceImpl implements ReviewUserService {
 
     @Override
     public List<String> getMostActiveUsers(int limit) {
-        return reviewUserRepository.findMostActiveUsers(limit).stream()
+        return reviewUserRepository.findMostActiveUsers(PageRequest.of(1, limit))
+                .getContent().stream()
                 .map(ReviewUser::getName)
                 .collect(Collectors.toList());
     }
